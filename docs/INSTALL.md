@@ -1,34 +1,24 @@
-# Linux runtime installation and project workflow
+# Linux source build and runtime installation
 
-The GitHub verification workflow builds a release binary and uploads an
-`aegis-linux-x86_64-runtime` artifact. Download it from the workflow run for the
-reviewed commit, extract it to a new directory, review `SOURCE_REVISION` and
-`SHA256SUMS`, then run:
+This public edition currently provides **source code and build/packaging scripts**, not a prebuilt binary download. The commands below run on a Linux x86_64 development machine with stable Rust/Cargo, Bash and GNU coreutils.
 
 ```sh
-bash /path/to/package/install.sh "$HOME/aegis-runtime-v1"
+cargo test --workspace --locked
+cargo build --release --locked
+target/release/aegis-data --help
+```
+
+To create a version-labeled runtime package locally:
+
+```sh
+bash scripts/package.sh target/release/aegis-data /tmp/aegis-package "$(git rev-parse HEAD)"
+bash /tmp/aegis-package/install.sh "$HOME/aegis-runtime-v1"
 "$HOME/aegis-runtime-v1/bin/aegis-data" --help
 ```
 
-The installer validates fixed package membership hashes and platform metadata.
-It refuses to overwrite an existing installation directory. Use versioned
-installation directories for upgrades; retain the previous version for rollback.
-The package needs Bash, GNU coreutils, a compatible Linux/glibc environment, and
-any workload toolchains separately installed. It does not bundle compilers,
-Docker, models, Python, GPU drivers or provider credentials. Current CI verifies
-Ubuntu x86_64; other Linux distributions and architectures remain unverified.
-Checksums establish byte integrity, not publisher authenticity. Obtain packages
-from the reviewed GitHub workflow; there is no signing or automatic updater yet.
+The installer verifies the packaged files using SHA-256 checksums and refuses to overwrite an existing installation directory. Preserve versioned install directories for rollback. Checksums establish byte integrity, not publisher authenticity. A local package does not imply an independently attested, signed or reproducible release.
 
-To package a locally built runtime:
-
-```sh
-cargo build --release --locked
-bash scripts/package.sh target/release/aegis-data /tmp/aegis-package FULL_GIT_COMMIT_SHA
-```
-
-The revision argument labels the package; CI supplies the actual checked-out
-`GITHUB_SHA`. This is not a claim of byte-for-byte reproducible binaries.
+The runtime package does not bundle compilers, Docker, Python, model weights, drivers, toolchains or credentials. Installation on hosts outside Linux x86_64 has not been validated in this public release. The included `scripts/verify_package.py` contains packaging/integration checks, but the new public repository must obtain its own successful verification evidence.
 
 ## Run an existing project
 
@@ -72,8 +62,4 @@ bounded event report, not an independently verifiable complete ledger database.
 Exported commands, paths and source may contain project information: review the
 package before sharing. Exports are local until explicitly distributed.
 
-CI tests the installed binary outside its package directory against the
-repository's actual C++ reference component, including intentional compilation
-failure, corrected execution, export verification and tamper rejection. This
-covers a repository component; independent projects and users remain separate
-acceptance requirements.
+The package-verification script exercises installation and local project workflows, including intentional failure, correction, export verification and tamper rejection. Run it in a supported environment and retain revision-specific receipts before claiming this public release has passed. Independent projects and users remain separate acceptance requirements.
