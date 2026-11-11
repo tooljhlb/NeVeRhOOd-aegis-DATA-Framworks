@@ -4,7 +4,7 @@
 
 A practical, open-source developer platform from **NeVeRhOOd Academy**, maintained by **Henry Barton** ([@tooljhlb](https://github.com/tooljhlb)). Built around a Rust-native CLI and operator, with a local API, developer workspace, and optional research adapters.
 
-[![CI](https://github.com/tooljhlb/NeVeRhOOd-aegis-DATA-Framworks/actions/workflows/ci.yml/badge.svg)](https://github.com/tooljhlb/NeVeRhOOd-aegis-DATA-Framworks/actions/workflows/ci.yml)
+[View verification workflow](https://github.com/tooljhlb/NeVeRhOOd-aegis-DATA-Framworks/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/core-Rust-orange.svg)](crates/aegis-data)
 
@@ -111,7 +111,7 @@ flowchart LR
 
 ## Evidence and limitations
 
-This public edition starts with **independent release history and evidence-neutral acceptance entries**. It does not inherit private test receipts or internal deployment metadata. The public CI workflow verifies what it runs at its own commit. Unexecuted or missing proofs remain unverified; successful unit tests do not certify end-to-end model quality, independent field deployments, complete GPU training, or a fully autonomous IDE.
+This public edition starts with **independent release history and evidence-neutral acceptance entries**. It does not inherit private test receipts or internal deployment metadata. The public verification workflow is included, but this initial public release has not yet obtained a successful native CI result. GitHub's first attempts ended before executing test steps. Run `bash scripts/verify.sh` on a supported Linux machine for revision-specific native verification. Unexecuted or missing proofs remain unverified; successful unit tests do not certify end-to-end model quality, independent field deployments, complete GPU training, or a fully autonomous IDE.
 
 See [acceptance coverage](docs/READINESS.md) and [security guidance](SECURITY.md). No customer secrets, external accounts, datasets, private checkpoints, or compute-provider setups are included.
 
