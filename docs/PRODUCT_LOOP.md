@@ -11,7 +11,7 @@ Testing occurs throughout development rather than after assigning a 10/10 score.
 | Durable agent tasks | Durable operator stages, logs, cancellation, leases and recovery; executable proposal adapters and local model SSE contract with disconnect cancellation | Persistent agent objective/context/tool state, UI-reload continuation, reconnect and qualified agent permissions |
 | Change management | Protected tests, repair rehearsals, preimage checks, editor stale-save rejection/snapshots and bounded single-file promotion/rollback | Multi-file atomic changes, overlapping-edit detection, per-task worktrees and concurrent human/agent transactions |
 | Consistent interfaces | Shared run IDs and native contracts; CLI inspection of API runs; CLI/API/UI project discovery, local LSP and model streaming contracts | Broader route coverage, version negotiation, typed external client SDKs, streaming event transport |
-| Public installation | Verified Linux x86_64 runtime package and fresh-install project workflow | Independently operated installs, Windows/macOS, versioned migrations, signed distribution and update recovery |
+| Public installation | Linux x86_64 source build, package/installer scripts and fresh-install workflow | Independent public-release installation verification, Windows/macOS, versioned migrations, signed distribution and update recovery |
 
 ## Discover a project without writing plan JSON
 
