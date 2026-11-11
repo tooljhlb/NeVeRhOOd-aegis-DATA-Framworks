@@ -31,7 +31,7 @@ Humans and AI operators can use the same contracts and policy gates.
 | Incident rehearsal | Contained worker/controller failure and disconnect drills; not authorized production chaos execution |
 | Reproducibility | Portable case packages and replay, revision-scoped receipts, manifest validation and evidence-backed readiness registry |
 | Project workflow | Doctor, profile-governed build/tests, failure withholding, corrected runs, bounded export and externally anchored export verification |
-| Installation | Tested Linux x86_64 release package, fixed-member checksums, fresh-directory install and retained-version rollback |
+| Installation | Linux x86_64 source build/package scripts, checksum verification, fresh-directory install and retained-version rollback; independent public-release validation pending |
 | Operating UI | Authenticated loopback API, cockpit, run status/events/logs/metrics/control, use-case catalogue and readiness view |
 | Large artifacts | Separate filesystem-store, hash-addressed chunk transport and resumed materialization; see ARTIFACTS.md |
 | Practical outcomes | Sample-counted first-success/recovery latency, unnecessary reruns, regression rate and operator interventions from recorded observations; see OUTCOMES.md |
