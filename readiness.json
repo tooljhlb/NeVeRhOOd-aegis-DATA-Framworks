@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "areas": [
+    {
+      "id": "remote-workers",
+      "title": "Authenticated remote execution",
+      "checks": [
+        {
+          "id": "worker_authentication_required",
+          "description": "Worker-specific authentication rejects bad credentials",
+          "evidence": null
+        },
+        {
+          "id": "multi_chunk_input_output_native_roundtrip",
+          "description": "Native remote input/output transfer",
+          "evidence": null
+        },
+        {
+          "id": "cross_worker_renewal_rejected",
+          "description": "Worker identities cannot renew one another's leases",
+          "evidence": null
+        },
+        {
+          "id": "stale_upload_rejected",
+          "description": "Old fencing epochs cannot upload outputs",
+          "evidence": null
+        },
+        {
+          "id": "capability-placement",
+          "description": "Capability-aware placement and worker compatibility",
+          "evidence": null
+        },
+        {
+          "id": "remote-host-deployment",
+          "description": "Lease API certified on independently provisioned remote hosts",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "Crash and disconnect recovery",
+      "checks": [
+        {
+          "id": "controller_disconnect_stops_execution_and_reclaims_epoch",
+          "description": "Controller disconnect/restart recovery",
+          "evidence": null
+        },
+        {
+          "id": "worker_sigkill_reclaimed_in_fresh_epoch",
+          "description": "Actual worker death and reassignment",
+          "evidence": null
+        },
+        {
+          "id": "controller_sigkill_before_checkpoint",
+          "description": "Actual controller death before checkpoint",
+          "evidence": null
+        },
+        {
+          "id": "controller_sigkill_with_checkpoint",
+          "description": "Actual controller death after checkpoint marker",
+          "evidence": null
+        },
+        {
+          "id": "power-loss",
+          "description": "Power-loss and atomic-save fault injection",
+          "evidence": null
+        },
+        {
+          "id": "checkpoint-transfer",
+          "description": "Validated checkpoint transfer between machines",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "isolation",
+      "title": "Enforced workload boundaries",
+      "checks": [
+        {
+          "id": "actual_oci_execution",
+          "description": "Actual Linux OCI execution",
+          "evidence": null
+        },
+        {
+          "id": "no_external_network",
+          "description": "OCI external networking disabled",
+          "evidence": null
+        },
+        {
+          "id": "read_only_root",
+          "description": "OCI root filesystem read-only",
+          "evidence": null
+        },
+        {
+          "id": "disk-quota",
+          "description": "Enforced total writable-disk quota",
+          "evidence": null
+        },
+        {
+          "id": "secret-scoping",
+          "description": "Per-task credentials and secret-exposure tests",
+          "evidence": null
+        },
+        {
+          "id": "orphan-reaper",
+          "description": "Independent orphan cleanup after unreachable worker loss",
+          "evidence": null
+        },
+        {
+          "id": "vm-boundary",
+          "description": "Stronger boundary for hostile workloads",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "scheduling",
+      "title": "Resource admission and scheduling",
+      "checks": [
+        {
+          "id": "concurrent_stages_and_dependency_join",
+          "description": "Bounded concurrent dependency execution",
+          "evidence": null
+        },
+        {
+          "id": "heartbeat_prevents_reclaim_after_original_expiry",
+          "description": "Heartbeats preserve ownership",
+          "evidence": null
+        },
+        {
+          "id": "fairness",
+          "description": "Priority and fairness measurements",
+          "evidence": null
+        },
+        {
+          "id": "gpu-admission",
+          "description": "GPU memory-aware admission",
+          "evidence": null
+        },
+        {
+          "id": "spend-limits",
+          "description": "Enforced compute budgets",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "title": "Scalable dataset preparation",
+      "checks": [
+        {
+          "id": "shards",
+          "description": "Independent large-corpus shard integrity checks",
+          "evidence": null
+        },
+        {
+          "id": "streaming",
+          "description": "Bounded-memory large-corpus preparation",
+          "evidence": null
+        },
+        {
+          "id": "sampler",
+          "description": "Exact streaming sampler resume",
+          "evidence": null
+        },
+        {
+          "id": "quarantine",
+          "description": "Configurable privacy/license quarantine",
+          "evidence": null
+        },
+        {
+          "id": "source-identity",
+          "description": "Versioned per-source transformation contract in production",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "contamination",
+      "title": "Contamination and split protection",
+      "checks": [
+        {
+          "id": "near-duplicates",
+          "description": "Adversarial near-duplicate leakage detection",
+          "evidence": null
+        },
+        {
+          "id": "benchmark-exclusion",
+          "description": "Independent benchmark contamination audit",
+          "evidence": null
+        },
+        {
+          "id": "grouped-splits",
+          "description": "Cross-source family grouping evaluated on a real corpus",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "title": "Independent capability measurement",
+      "checks": [
+        {
+          "id": "accepted",
+          "description": "Reference pipeline artifact-derived acceptance",
+          "evidence": null
+        },
+        {
+          "id": "coding-benchmark",
+          "description": "Frozen executable coding benchmark",
+          "evidence": null
+        },
+        {
+          "id": "reasoning-benchmark",
+          "description": "Independent reasoning suites",
+          "evidence": null
+        },
+        {
+          "id": "retrieval-benchmark",
+          "description": "RAG relevance and faithfulness evaluation",
+          "evidence": null
+        },
+        {
+          "id": "tool-benchmark",
+          "description": "Executable tool correctness and factuality evaluation",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "title": "Verified language adapters",
+      "checks": [
+        {
+          "id": "selected-checks",
+          "description": "Installed selected toolchain checks pass",
+          "evidence": null
+        },
+        {
+          "id": "all-adapters",
+          "description": "Every advertised language has build/test evidence",
+          "evidence": null
+        },
+        {
+          "id": "toolchain-pinning",
+          "description": "Portable pinned toolchain environments",
+          "evidence": null
+        },
+        {
+          "id": "project-discovery",
+          "description": "Real multi-project language discovery evaluation",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "gpu-training",
+      "title": "Native GPU training",
+      "checks": [
+        {
+          "id": "exact-cpu",
+          "description": "Reference exact CPU model/optimizer/RNG resume",
+          "evidence": null
+        },
+        {
+          "id": "gpu-equivalence",
+          "description": "Native GPU forward/backward/optimizer reference equivalence",
+          "evidence": null
+        },
+        {
+          "id": "gpu-resume",
+          "description": "GPU interruption and distributed checkpoint recovery",
+          "evidence": null
+        },
+        {
+          "id": "gpu-performance",
+          "description": "Published GPU memory and throughput measurements",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "multimodal",
+      "title": "Playable multimodal workflows",
+      "checks": [
+        {
+          "id": "codecs",
+          "description": "Real codec identity and round-trip evidence",
+          "evidence": null
+        },
+        {
+          "id": "alignment",
+          "description": "Aligned text/audio/video timing and masks",
+          "evidence": null
+        },
+        {
+          "id": "playable",
+          "description": "Playable generated audio/video output",
+          "evidence": null
+        },
+        {
+          "id": "quality",
+          "description": "Modality metrics plus blind comparisons",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "repair",
+      "title": "Reliable repair automation",
+      "checks": [
+        {
+          "id": "isolated_repair_apply_rollback",
+          "description": "Isolated formatter repair apply and rollback",
+          "evidence": null
+        },
+        {
+          "id": "semantic-repair",
+          "description": "Semantic failure reproduction and regression-gated patch",
+          "evidence": null
+        },
+        {
+          "id": "repair-quality",
+          "description": "Independent patch success and regression rate",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "observability",
+      "title": "Debugging and operational evidence",
+      "checks": [
+        {
+          "id": "event_chain_with_real_float_receipts",
+          "description": "Runtime event chain integrity",
+          "evidence": null
+        },
+        {
+          "id": "active_process_cancellation",
+          "description": "Active process cancellation",
+          "evidence": null
+        },
+        {
+          "id": "debugger",
+          "description": "Debugger adapter end-to-end workflow",
+          "evidence": null
+        },
+        {
+          "id": "searchable-traces",
+          "description": "Searchable logs/traces with failure grouping",
+          "evidence": null
+        },
+        {
+          "id": "alerts",
+          "description": "Scoped alert delivery and acknowledgement",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "graphs",
+      "title": "Instrumented graph intelligence",
+      "checks": [
+        {
+          "id": "event-graph",
+          "description": "Observed execution graph integrity",
+          "evidence": null
+        },
+        {
+          "id": "graph-utility",
+          "description": "Graph analysis improves diagnosis on representative incidents",
+          "evidence": null
+        },
+        {
+          "id": "instrumentation",
+          "description": "Each advertised graph capability has an actual data producer",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "interface",
+      "title": "Human and AI operating interface",
+      "checks": [
+        {
+          "id": "api_plan_submission",
+          "description": "Actual authenticated API plan execution",
+          "evidence": null
+        },
+        {
+          "id": "api_readiness_rejects_tampered_evidence",
+          "description": "Authenticated cockpit acceptance report rejects changed evidence",
+          "evidence": null
+        },
+        {
+          "id": "accessibility",
+          "description": "Independent accessibility and usability checks",
+          "evidence": null
+        },
+        {
+          "id": "remote-live-feed",
+          "description": "Authenticated remote live logs and metrics",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "releases",
+      "title": "Install and upgrade reliability",
+      "checks": [
+        {
+          "id": "fresh-install",
+          "description": "Fresh-machine one-command installation",
+          "evidence": null
+        },
+        {
+          "id": "signed-releases",
+          "description": "Versioned signed release artifacts and inventory",
+          "evidence": null
+        },
+        {
+          "id": "upgrade",
+          "description": "Backward-compatible upgrade/rollback drills",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "teams",
+      "title": "Team and tenant operation",
+      "checks": [
+        {
+          "id": "rbac",
+          "description": "Project-scoped roles and service accounts",
+          "evidence": null
+        },
+        {
+          "id": "tenant-isolation",
+          "description": "Cross-project denial tests",
+          "evidence": null
+        },
+        {
+          "id": "retention",
+          "description": "Retention/audit policies and backup restore drills",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "integrations",
+      "title": "Maintained service integrations",
+      "checks": [
+        {
+          "id": "artifact-return",
+          "description": "Independent CI worker artifact round trip",
+          "evidence": null
+        },
+        {
+          "id": "providers",
+          "description": "Supported provider adapters tested against real services",
+          "evidence": null
+        },
+        {
+          "id": "model-endpoints",
+          "description": "Stable model prediction adapters verified",
+          "evidence": null
+        },
+        {
+          "id": "notifications",
+          "description": "Notification integrations tested with explicit scoped delivery",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "scale",
+      "title": "Published scale and reliability measurements",
+      "checks": [
+        {
+          "id": "load",
+          "description": "Increasing concurrency load matrix with latency/throughput",
+          "evidence": null
+        },
+        {
+          "id": "backpressure",
+          "description": "Overload and storage pressure behavior",
+          "evidence": null
+        },
+        {
+          "id": "slo",
+          "description": "Measured recovery and availability objectives",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "adoption",
+      "title": "Independent user outcomes",
+      "checks": [
+        {
+          "id": "onboarding",
+          "description": "Independent users complete onboarding unaided",
+          "evidence": null
+        },
+        {
+          "id": "value",
+          "description": "Measured effort/failure reduction on real projects",
+          "evidence": null
+        },
+        {
+          "id": "retention",
+          "description": "Users continue successful operation",
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": "commercial",
+      "title": "Sustainable commercial operation",
+      "checks": [
+        {
+          "id": "licensing",
+          "description": "Clear product/dependency/data licensing offer",
+          "evidence": null
+        },
+        {
+          "id": "unit-economics",
+          "description": "Measured deployment and support cost",
+          "evidence": null
+        },
+        {
+          "id": "support",
+          "description": "Incident/security response and support process",
+          "evidence": null
+        },
+        {
+          "id": "customers",
+          "description": "Real customer value and willingness to pay",
+          "evidence": null
+        }
+      ]
+    }
+  ]
+}

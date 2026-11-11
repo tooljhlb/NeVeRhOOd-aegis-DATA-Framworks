@@ -1,0 +1,21 @@
+[package]
+name = "aegis-data"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+prost = "0.13"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version="1", features=["float_roundtrip"] }
+serde_yaml = "0.9"
+sha2 = "0.10"
+rusqlite = { version = "0.32", features = ["bundled"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "net", "time"] }
+ignore = "0.4"
+libc = "0.2"
+axum = "0.8"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+futures-util = { version = "0.3", default-features = false, features = ["std"] }
+[dev-dependencies]
+tempfile = "3"

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "purpose": "Frozen engineering fixtures; not an AI coding capability benchmark",
+  "sources": [
+    {
+      "path": "binary_search.py",
+      "sha256": "d735cc73110a5228814caf03fb73104c701a4a5f1e2c5bc6c81f7fde9dcef8da",
+      "group_id": "frozen-v1:binary_search.py:9",
+      "split": "validation"
+    },
+    {
+      "path": "edit_distance.py",
+      "sha256": "73a884edb695e3f33cce62d3912c736678c51f495ef002560e2169854ea4a33e",
+      "group_id": "frozen-v1:edit_distance.py:2",
+      "split": "validation"
+    },
+    {
+      "path": "gcd.py",
+      "sha256": "2a1532f7f40851b55dfdea2851e9eccf089dc7d3b7ddd977aadd5766de622439",
+      "group_id": "frozen-v1:gcd.py:24",
+      "split": "test"
+    },
+    {
+      "path": "graph_order.py",
+      "sha256": "353bb003aeeae1f0feb6d8bb397bb6d32dd61b3db6181267a81617d83489761c",
+      "group_id": "frozen-v1:graph_order.py:0",
+      "split": "train"
+    },
+    {
+      "path": "intervals.py",
+      "sha256": "e3c4fd75ec8e79e2337fddec180c3a81708a2f35551d871b7fe97b9a15f6a66e",
+      "group_id": "frozen-v1:intervals.py:0",
+      "split": "train"
+    },
+    {
+      "path": "matrix.py",
+      "sha256": "2cc38dcc813d8d9065dc5859a5ff53bd40e3e02ef80819ecdb613f6afc03020c",
+      "group_id": "frozen-v1:matrix.py:0",
+      "split": "train"
+    },
+    {
+      "path": "run_length.py",
+      "sha256": "c18578c3eecfe58da83068d1edaf85dead15346d5a220ca4be41a96c5da93fcb",
+      "group_id": "frozen-v1:run_length.py:0",
+      "split": "train"
+    },
+    {
+      "path": "variance.py",
+      "sha256": "ebdea15f5ed1b20777e98f4ca52a9b66c9ecddd113a8d3cd442b54e7abaefaa9",
+      "group_id": "frozen-v1:variance.py:0",
+      "split": "train"
+    }
+  ]
+}

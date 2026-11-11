@@ -1,0 +1,6 @@
+{"task": "binary", "prediction": 1, "target": 1, "group": "A"}
+{"task": "binary", "prediction": 0, "target": 1, "group": "B"}
+{"task": "multiclass", "prediction": "cat", "target": "cat"}
+{"task": "regression", "prediction": 2.5, "target": 2}
+{"task": "exam", "prediction": "C", "target": "C"}
+{"task": "tool", "prediction": {"name": "sum", "args": [1, 2]}, "target": {"name": "sum", "args": [1, 2]}}

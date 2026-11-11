@@ -1,0 +1,14 @@
+syntax = "proto3";
+package aegis.data.v1;
+message Sample {
+  string sha256 = 1; string source = 2; string license = 3;
+  string group_id = 4; string split = 5; string text = 6; string revision = 7; string content_kind = 8; string normalization = 9; string original_sha256 = 10;
+}
+// Metadata only: tensor bytes live in sharded tensor files, not huge protobufs.
+message CheckpointManifest {
+  uint32 schema_version = 1; uint64 step = 2; string run_id = 3;
+  string model_config_sha256 = 4; string data_manifest_sha256 = 5;
+  repeated TensorShard tensors = 6; bytes rng_state = 7;
+  string cursor = 8; string code_commit = 9;
+}
+message TensorShard { string uri = 1; string sha256 = 2; uint64 size_bytes = 3; string role = 4; }

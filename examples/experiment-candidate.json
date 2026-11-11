@@ -1,0 +1,24 @@
+{
+  "id": "illustrative-candidate",
+  "base_model_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "model_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "training_data_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "evaluation_data_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "tokenizer_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "objective_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "schedule_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "seed": 7,
+  "updates": 10,
+  "wall_seconds": 1.2,
+  "metrics": {
+    "code/accuracy": {
+      "value": 0.6,
+      "n": 100,
+      "direction": "min",
+      "successes": 60
+    }
+  },
+  "evaluator_code_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "evaluator_config_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "decoding_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+}

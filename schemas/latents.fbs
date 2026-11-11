@@ -1,0 +1,7 @@
+// Proposed hot-path ABI. Bindings are not generated or wired into ingestion yet.
+namespace Aegis.Data.V1;
+enum Modality:ubyte { Text=0, Video=1, Audio=2 }
+table Tensor { modality:Modality; shape:[ulong]; values:[float]; codec_sha256:string; scale:float=1.0; }
+table Batch { schema_version:uint=1; sample_ids:[string]; tokens:[uint]; tensors:[Tensor]; max_tokens:uint; }
+root_type Batch;
+file_identifier "AGB1";

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "maintenance-example",
+  "purpose": "repair",
+  "files": ["sum.sh", "test.sh"],
+  "editable": ["sum.sh"],
+  "protected": ["test.sh"],
+  "checks": [{"id": "semantic-tests", "kind": "test", "program": "/bin/sh", "args": ["test.sh"]}],
+  "baseline_exit_codes": {"semantic-tests": 1},
+  "timeout_seconds": 30,
+  "require_remote": false
+}

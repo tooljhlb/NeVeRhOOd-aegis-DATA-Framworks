@@ -1,0 +1,10 @@
+[
+  {
+    "name": "example-code-accuracy",
+    "direction": "min",
+    "threshold": 0.7,
+    "metric_pointer": "/metrics/code~1accuracy/value",
+    "evidence_file": "examples/metric-evidence.json",
+    "evidence_sha256": "3c4231adc64140312359f63d8c1b8d3c860d89604a17d32459531eda1268aa3a"
+  }
+]

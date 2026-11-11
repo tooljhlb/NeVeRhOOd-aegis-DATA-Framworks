@@ -1,0 +1,13 @@
+syntax = "proto3";
+package aegis.interchange.v1;
+// Frame: ASCII AEG1, uint32 little-endian protobuf length, encoded Packet.
+// content_id is SHA-256(payload), exactly 32 RAW bytes, never hex on this wire.
+message Packet {
+  uint32 schema_version = 1; // must be 1
+  enum Encoding { ENCODING_UNSPECIFIED = 0; PROTOBUF = 1; FLATBUFFERS = 2; RAW = 3; }
+  enum Topic { TOPIC_UNSPECIFIED = 0; ARTIFACT = 1; TRAINING_BATCH = 2; TELEMETRY = 3; TOOL_EVENT = 4; }
+  Encoding encoding = 2;
+  Topic topic = 3;
+  bytes content_id = 4;
+  bytes payload = 5; // opaque; the receiving subsystem verifies its own schema
+}

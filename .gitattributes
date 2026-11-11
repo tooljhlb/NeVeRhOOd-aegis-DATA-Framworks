@@ -1,0 +1,2 @@
+fixtures/reference-code/*.py text eol=lf
+fixtures/reference-manifest.json text eol=lf

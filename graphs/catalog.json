@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "public-example-catalog",
+    "kind": "hand-authored",
+    "license": "MIT"
+  },
+  "extraction": {
+    "unique_graph_basenames": 3,
+    "occurrence_count": 3,
+    "catalog_status": "Public examples; definitions are not runtime observations"
+  },
+  "definitions": [
+    {
+      "id": "graph-definition:dataset-lineage.graph",
+      "name": "dataset-lineage.graph",
+      "status": "declared",
+      "context_domains": [
+        "data",
+        "provenance"
+      ]
+    },
+    {
+      "id": "graph-definition:job-dependencies.graph",
+      "name": "job-dependencies.graph",
+      "status": "declared",
+      "context_domains": [
+        "execution"
+      ]
+    },
+    {
+      "id": "graph-definition:artifact-verification.graph",
+      "name": "artifact-verification.graph",
+      "status": "declared",
+      "context_domains": [
+        "artifacts",
+        "evaluation"
+      ]
+    }
+  ]
+}

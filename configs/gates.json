@@ -1,0 +1,26 @@
+[
+  {
+    "name": "heldout_text_accuracy",
+    "direction": "min",
+    "threshold": 0.8,
+    "measured": null,
+    "evidence_sha256": null,
+    "metric_pointer": "/metrics/heldout_text_accuracy/value"
+  },
+  {
+    "name": "video_temporal_consistency",
+    "direction": "min",
+    "threshold": 0.8,
+    "measured": null,
+    "evidence_sha256": null,
+    "metric_pointer": "/metrics/video_temporal_consistency/value"
+  },
+  {
+    "name": "audio_fad",
+    "direction": "max",
+    "threshold": 5.0,
+    "measured": null,
+    "evidence_sha256": null,
+    "metric_pointer": "/metrics/audio_fad/value"
+  }
+]

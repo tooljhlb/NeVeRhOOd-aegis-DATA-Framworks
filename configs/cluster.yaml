@@ -1,0 +1,10 @@
+# Plan only; this does not launch workers or open remote sessions.
+prefetch: 3
+max_tokens: 256
+nodes:
+  - id: cpu-01
+  - id: cpu-02
+shards:
+  - shards/train-00000.pb
+  - shards/train-00001.pb
+  - shards/train-00002.pb

@@ -1,0 +1,822 @@
+{
+  "version": 1,
+  "languages": [
+    {
+      "id": "rust",
+      "extensions": [
+        "rs"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "rust-format",
+          "kind": "format",
+          "program": "cargo",
+          "args": [
+            "fmt",
+            "--all",
+            "--",
+            "--check"
+          ],
+          "project_marker": "Cargo.toml"
+        },
+        {
+          "id": "rust-clippy",
+          "kind": "lint",
+          "program": "cargo",
+          "args": [
+            "clippy",
+            "--workspace",
+            "--all-targets",
+            "--locked",
+            "--",
+            "-D",
+            "warnings"
+          ],
+          "project_marker": "Cargo.toml"
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "extensions": [
+        "py",
+        "pyi"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "python-lint",
+          "kind": "lint",
+          "program": "ruff",
+          "args": [
+            "check",
+            "--output-format",
+            "json",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "javascript",
+      "extensions": [
+        "js",
+        "mjs",
+        "cjs"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "javascript-syntax",
+          "kind": "syntax",
+          "program": "node",
+          "args": [
+            "--check",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "typescript",
+      "extensions": [
+        "ts",
+        "tsx"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "typescript-type",
+          "kind": "type",
+          "program": "tsc",
+          "args": [
+            "--noEmit",
+            "--pretty",
+            "false",
+            "--noResolve",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jsx",
+      "extensions": [
+        "jsx"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "jsx-lint",
+          "kind": "lint",
+          "program": "eslint",
+          "args": [
+            "--format",
+            "json",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "extensions": [
+        "c"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "c-syntax",
+          "kind": "syntax",
+          "program": "gcc",
+          "args": [
+            "-fsyntax-only",
+            "-Wall",
+            "-Wextra",
+            "-std=c17",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cpp",
+      "extensions": [
+        "cpp",
+        "cc",
+        "cxx"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "cpp-syntax",
+          "kind": "syntax",
+          "program": "g++",
+          "args": [
+            "-fsyntax-only",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-header",
+      "extensions": [
+        "h"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "c-header-format",
+          "kind": "format",
+          "program": "clang-format",
+          "args": [
+            "--dry-run",
+            "--Werror",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cpp-header",
+      "extensions": [
+        "hpp",
+        "hxx"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "cpp-header-format",
+          "kind": "format",
+          "program": "clang-format",
+          "args": [
+            "--dry-run",
+            "--Werror",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuda",
+      "extensions": [
+        "cu",
+        "cuh"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "cuda-format",
+          "kind": "format",
+          "program": "clang-format",
+          "args": [
+            "--dry-run",
+            "--Werror",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go",
+      "extensions": [
+        "go"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "go-lint",
+          "kind": "lint",
+          "program": "go",
+          "args": [
+            "vet",
+            "./..."
+          ],
+          "project_marker": "go.mod"
+        }
+      ]
+    },
+    {
+      "id": "java",
+      "extensions": [
+        "java"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "java-lint",
+          "kind": "lint",
+          "program": "checkstyle",
+          "args": [
+            "-c",
+            "/google_checks.xml",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotlin",
+      "extensions": [
+        "kt",
+        "kts"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "kotlin-lint",
+          "kind": "lint",
+          "program": "ktlint",
+          "args": [
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "csharp",
+      "extensions": [
+        "cs"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "csharp-format",
+          "kind": "format",
+          "program": "dotnet",
+          "args": [
+            "format",
+            "--verify-no-changes"
+          ],
+          "project_marker": "aegis.sln"
+        }
+      ]
+    },
+    {
+      "id": "fsharp",
+      "extensions": [
+        "fs",
+        "fsx"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "fsharp-format",
+          "kind": "format",
+          "program": "fantomas",
+          "args": [
+            "--check",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swift",
+      "extensions": [
+        "swift"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "swift-lint",
+          "kind": "lint",
+          "program": "swiftlint",
+          "args": [
+            "lint",
+            "--path",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "objc",
+      "extensions": [
+        "m",
+        "mm"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "objc-format",
+          "kind": "format",
+          "program": "clang-format",
+          "args": [
+            "--dry-run",
+            "--Werror",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruby",
+      "extensions": [
+        "rb"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "ruby-lint",
+          "kind": "lint",
+          "program": "rubocop",
+          "args": [
+            "--format",
+            "json",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php",
+      "extensions": [
+        "php"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "php-syntax",
+          "kind": "syntax",
+          "program": "php",
+          "args": [
+            "-l",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shell",
+      "extensions": [
+        "sh",
+        "bash"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "shell-lint",
+          "kind": "lint",
+          "program": "shellcheck",
+          "args": [
+            "--format=json",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "powershell",
+      "extensions": [
+        "ps1",
+        "psm1"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "powershell-lint",
+          "kind": "lint",
+          "program": "pwsh",
+          "args": [
+            "-NoProfile",
+            "-Command",
+            "Invoke-ScriptAnalyzer -Path $args[0] -EnableExit",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lua",
+      "extensions": [
+        "lua"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "lua-lint",
+          "kind": "lint",
+          "program": "luacheck",
+          "args": [
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r",
+      "extensions": [
+        "R",
+        "r"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "r-lint",
+          "kind": "lint",
+          "program": "Rscript",
+          "args": [
+            "-e",
+            "quit(status=as.integer(length(lintr::lint(commandArgs(TRUE)[1]))>0))",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "julia",
+      "extensions": [
+        "jl"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "julia-format",
+          "kind": "format",
+          "program": "julia",
+          "args": [
+            "--startup-file=no",
+            "-e",
+            "using JuliaFormatter; exit(format_file(ARGS[1]; overwrite=false) ? 0 : 1)",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scala",
+      "extensions": [
+        "scala",
+        "sc"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "scala-format",
+          "kind": "format",
+          "program": "scalafmt",
+          "args": [
+            "--test",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dart",
+      "extensions": [
+        "dart"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "dart-lint",
+          "kind": "lint",
+          "program": "dart",
+          "args": [
+            "analyze",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elixir",
+      "extensions": [
+        "ex",
+        "exs"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "elixir-format",
+          "kind": "format",
+          "program": "mix",
+          "args": [
+            "format",
+            "--check-formatted",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erlang",
+      "extensions": [
+        "erl",
+        "hrl"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "erlang-format",
+          "kind": "format",
+          "program": "erlfmt",
+          "args": [
+            "--check",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "haskell",
+      "extensions": [
+        "hs"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "haskell-lint",
+          "kind": "lint",
+          "program": "hlint",
+          "args": [
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ocaml",
+      "extensions": [
+        "ml",
+        "mli"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "ocaml-format",
+          "kind": "format",
+          "program": "ocamlformat",
+          "args": [
+            "--check",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zig",
+      "extensions": [
+        "zig"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "zig-format",
+          "kind": "format",
+          "program": "zig",
+          "args": [
+            "fmt",
+            "--check",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "extensions": [
+        "sql"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "sql-lint",
+          "kind": "lint",
+          "program": "sqlfluff",
+          "args": [
+            "lint",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "html",
+      "extensions": [
+        "html",
+        "htm"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "html-lint",
+          "kind": "lint",
+          "program": "htmlhint",
+          "args": [
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "css",
+      "extensions": [
+        "css",
+        "scss",
+        "less"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "css-lint",
+          "kind": "lint",
+          "program": "stylelint",
+          "args": [
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "json",
+      "extensions": [
+        "json"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "json-syntax",
+          "kind": "syntax",
+          "program": "@json",
+          "args": []
+        }
+      ]
+    },
+    {
+      "id": "yaml",
+      "extensions": [
+        "yml",
+        "yaml"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "yaml-syntax",
+          "kind": "syntax",
+          "program": "@yaml",
+          "args": []
+        }
+      ]
+    },
+    {
+      "id": "toml",
+      "extensions": [
+        "toml"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "toml-syntax",
+          "kind": "syntax",
+          "program": "taplo",
+          "args": [
+            "check",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "protobuf",
+      "extensions": [
+        "proto"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "protobuf-lint",
+          "kind": "lint",
+          "program": "buf",
+          "args": [
+            "lint"
+          ],
+          "project_marker": "buf.yaml"
+        }
+      ]
+    },
+    {
+      "id": "flatbuffers",
+      "extensions": [
+        "fbs"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "flatbuffers-syntax",
+          "kind": "syntax",
+          "program": "flatc",
+          "args": [
+            "--conform",
+            "{file}",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terraform",
+      "extensions": [
+        "tf",
+        "tfvars"
+      ],
+      "filenames": [],
+      "checks": [
+        {
+          "id": "terraform-format",
+          "kind": "format",
+          "program": "terraform",
+          "args": [
+            "fmt",
+            "-check",
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dockerfile",
+      "extensions": [],
+      "filenames": [
+        "Dockerfile",
+        "Containerfile"
+      ],
+      "checks": [
+        {
+          "id": "dockerfile-lint",
+          "kind": "lint",
+          "program": "hadolint",
+          "args": [
+            "{file}"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmake",
+      "extensions": [
+        "cmake"
+      ],
+      "filenames": [
+        "CMakeLists.txt"
+      ],
+      "checks": [
+        {
+          "id": "cmake-lint",
+          "kind": "lint",
+          "program": "cmake-lint",
+          "args": [
+            "{file}"
+          ]
+        }
+      ]
+    }
+  ]
+}

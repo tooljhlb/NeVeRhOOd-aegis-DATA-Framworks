@@ -1,0 +1,28 @@
+name: Public source verification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Native tests and reference commands
+        run: bash scripts/verify.sh
+      - name: Verify public boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          if find . -type f -name '*.ipynb' -print | grep -q .; then
+            echo 'Unexpected notebook in public source' >&2; exit 1
+          fi
+          if grep -rniE 'GeneralAegis|drive\.google\.com|google[ -]?colab|supercolab|aegis-env-master|muse-colab-system' \
+            --include='*.md' --include='*.rs' --include='*.json' --include='*.yaml' --include='*.yml' \
+            --exclude='ci.yml' --exclude-dir=.git . ; then
+            echo 'Private infrastructure reference in public source' >&2; exit 1
+          fi
